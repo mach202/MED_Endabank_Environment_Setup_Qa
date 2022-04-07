@@ -15,7 +15,7 @@ module "management-subnet" {
     project_id = "endabank"
     subnet_name = "management-subnet"
     subnet_cidr_range = "10.0.0.0/24"
-    network = module.networking.network-name
+    network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
 
