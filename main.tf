@@ -36,7 +36,6 @@ module "kubernetes-subnet" {
 module "ssh-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    
     name = "ssh-rule"
     network = module.networking.network-name
     description = "allow http and https traffic"
@@ -52,10 +51,9 @@ module "ssh-endbank-rule" {
     
 }
 
-module "Jenkins-endbank-rule" {
+module "jenkins-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    
     name = "jenkins-rule"
     network = module.networking.network-name
     description = "allow http and https traffic"
