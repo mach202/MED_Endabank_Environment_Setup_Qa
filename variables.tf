@@ -1,7 +1,7 @@
 variable "GCP_SERVICES" {
   
 }
-
+/*
 variable "backend_hostname" {
     default = "app.terraform.io"
   
@@ -16,7 +16,7 @@ variable "backend_name_workspace" {
     default = "cloud-environmet"
   
 }
-
+*/
 variable "project" {
     default = "endabank"
   

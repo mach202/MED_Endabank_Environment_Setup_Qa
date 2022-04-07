@@ -1,10 +1,10 @@
 terraform {
   backend "remote"{
-      hostname = var.backend_hostname
-      organization = var.backend_organization
+      hostname ="app.terraform.io"
+      organization = "med-endabank"
 
     workspaces {
-      name = var.backend_name_workspace
+      name = "cloud-environmet"
     }
   }
 }
