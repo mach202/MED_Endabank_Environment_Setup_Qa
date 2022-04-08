@@ -151,7 +151,7 @@ module "database" {
     reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
 
     database_name = "med-endabank-database"
-    database_instance =  module.database.database.database_instance_name
+    database_instance =  module.database.database_instance_name
 
     database_instance_name = "med-endabank-database_primary"
     database_region = var.region
@@ -164,6 +164,6 @@ module "database" {
     private_network = module.networking.network-name
 
     database_user_name = "root"
-    database_instance_credentials =  module.database.database.database_instance_name #revisar
+    database_instance_credentials =  module.database.database_instance_name #revisar
     database_password = "admin" #revisar sensitive variables
     }
