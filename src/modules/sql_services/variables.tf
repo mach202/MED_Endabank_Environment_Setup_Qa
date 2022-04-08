@@ -93,7 +93,7 @@ variable "database_version" {
   
 }
 
-variable "depends_on" {
+variable "depends_on_database" {
     description = "dependence" #google_service_networking_connection.private_vpc_connection
     
 }
