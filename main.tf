@@ -146,7 +146,7 @@ module "database" {
     prefix_length = 20
     private_network_name_ip_address = module.networking.network-name
 
-    network_name = module.networking.network_name
+    network_name = module.networking.network-name
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
 
