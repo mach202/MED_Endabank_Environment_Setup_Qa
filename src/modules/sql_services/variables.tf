@@ -74,8 +74,14 @@ variable "reserved_peering_ranges" {
   
 }
 
-variable "database_instance" {
+variable "database_name" {
     description = "name of database"
+    type = string
+  
+}
+
+variable "database_instance" {
+    description = "database primary instance"
     type = string
   
 }
@@ -86,7 +92,7 @@ variable "database_instance_name" {
   
 }
 
-variable "region" {
+variable "database_region" {
     description = "region of database location"
     type = string
     default = "us-central1"
