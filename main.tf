@@ -83,10 +83,10 @@ module "kubernetes-nodes" {
     count = 3
     instance_name = count.index == 0 ? "master-node" : "worker-node-${count.index}"
     instance_zone = "us-central1-a"
-    machine_type = "e2-medium"
+    instance_type = "e2-medium"
     allow_stopping_for_update = true
 
-    image = "debian-10-buster-v20220118"
+    instance_image = "debian-10-buster-v20220118"
 
     #tags = ["${concat(list("${var.name}-ssh", "${var.name}"), var.node_tags)}"]
 
@@ -102,10 +102,10 @@ module "ci-cd-jumbox-host" {
 
     instance_name = "ci-cd-jumbox-host"
     instance_zone = "us-central1-a"
-    machine_type = "e2-medium"
+    instance_type = "e2-medium"
     allow_stopping_for_update = true
 
-    image = "debian-10-buster-v20220118"
+    instance_image = "debian-10-buster-v20220118"
 
     #tags = ["${concat(list("${var.name}-ssh", "${var.name}"), var.node_tags)}"]
 
