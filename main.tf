@@ -115,3 +115,21 @@ module "ci-cd-jumbox-host" {
 
     script = "install-puppet.sh"
 }
+
+module "frontend_bucket" {
+    
+    project_id    = "endabank"
+    bucket_name         = "med-endabank-frotend"
+    bucket_region      = "us-central1 (Iowa)"
+    bucket_force_destroy = true
+
+    uniform_bucket_level_access = true
+
+    bucket_main_page_suffix = "index.html"
+    bucket_not_page_found   = "404.html"
+  
+    bucket_origin          = ["http://med-endabank-frontend.com"]
+    bucket_method          = ["GET", "HEAD", "PUT", "POST", "DELETE"]
+    bucket_response_header = ["*"]
+    bucket_max_age_seconds = 3600
+}
