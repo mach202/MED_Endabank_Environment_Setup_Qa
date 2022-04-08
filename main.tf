@@ -40,11 +40,8 @@ module "ssh-endbank-rule" {
     network = module.networking.network-name
     description = "allow http and https traffic"
     source_ranges = ["0.0.0.0/24"]
-    allow {
-      protocol = "tcp"
-      ports = ["22, 80, 443"]
-    }
-
+    protocol = "tcp"
+    ports = ["22, 80, 443"]
     target_tags = ["http, https"]
     
     depends_on = [module.networking]
@@ -58,11 +55,8 @@ module "jenkins-endbank-rule" {
     network = module.networking.network-name
     description = "allow http and https traffic"
     source_ranges = ["10.0.0.0/24"]
-    allow {
-      protocol = "tcp"
-      ports = ["8080"]
-    }
-
+    protocol = "tcp"
+    ports = ["8080"]
     target_tags = ["http, https"]
     depends_on = [module.networking]
     
