@@ -88,7 +88,7 @@ module "kubernetes-nodes" {
 
     count = 3
     instance_name = count.index == 0 ? "master-node" : "worker-node-${count.index}"
-    zone = "us-central1-a"
+    instance_zone = "us-central1-a"
     machine_type = "e2-medium"
     allow_stopping_for_update = true
 
@@ -107,7 +107,7 @@ module "ci-cd-jumbox-host" {
     source = "./src/modules/compute_engine_public"
 
     instance_name = "ci-cd-jumbox-host"
-    zone = "us-central1-a"
+    instance_zone = "us-central1-a"
     machine_type = "e2-medium"
     allow_stopping_for_update = true
 
