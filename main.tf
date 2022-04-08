@@ -138,12 +138,12 @@ module "frontend_bucket" {
 module "database" {
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
-    routin_mode = "REGIONAL"
+    routing_mode = "REGIONAL"
     
     private_ip_name = "database-private-connenction"
     purpose = "VPC_PEERING"
     address_type = "INTERNAL"
-    prefix_lenght = 20
+    prefix_length = 20
     private_network_name_ip_adress = module.networking.network-name
 
     network_name = module.networking.network_name
@@ -153,7 +153,7 @@ module "database" {
     database_name = "med-endabank-database"
     instance =  module.database.database_primary.name
 
-    database_instace_name = "med-endabank-database_primary"
+    database_instance_name = "med-endabank-database_primary"
     region = var.region
     database_version = "POSTGRES_13"
     depends_on_database = [google_service_networking_connection.private_vpc_connection]
@@ -164,6 +164,6 @@ module "database" {
     private_network = module.networking.network-name
 
     database_user_name = "root"
-    database_instance = google_sql_database_instance.database_primary.name #revisar
+    database_instance =  module.database.database_primary.name #revisar
     database_password = "admin" #revisar sensitive variables
     }
