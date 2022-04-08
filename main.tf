@@ -139,8 +139,11 @@ module "database" {
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
     routin_mode = "REGIONAL"
+    
     private_ip_name = "database-private-connenction"
-
+    address_type = "INTERNAL"
+    prefix_lenght = 20
+    network_name = module.networking.network-name
 
 }
 */
