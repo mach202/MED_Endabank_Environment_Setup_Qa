@@ -144,7 +144,7 @@ module "database" {
     purpose = "VPC_PEERING"
     address_type = "INTERNAL"
     prefix_length = 20
-    private_network_name_ip_adress = module.networking.network-name
+    private_network_name_ip_address = module.networking.network-name
 
     network_name = module.networking.network_name
     service = "servicenetworking.googleapis.com"
