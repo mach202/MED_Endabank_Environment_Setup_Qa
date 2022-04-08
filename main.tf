@@ -117,7 +117,7 @@ module "ci-cd-jumbox-host" {
 }
 
 module "frontend_bucket" {
-    source = "./src/modules/cloud-storage"
+    source = "./src/modules/cloud_storage"
 
     project_id    = "endabank"
     bucket_name         = "med-endabank-frotend"
