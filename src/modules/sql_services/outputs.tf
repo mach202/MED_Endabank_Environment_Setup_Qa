@@ -5,5 +5,5 @@ output "databse" {
 
 output "database-name" {
     description = "name of database"
-    value = google_sql_database.database.name
+    value = google_sql_database_instance.database_primary.name
 } 

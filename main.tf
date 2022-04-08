@@ -164,6 +164,6 @@ module "database" {
     private_network = module.networking.network-name
 
     database_user_name = "root"
-    database_instance_credentials = google_sql_database_instance.database_primary.name #module.database.database-name #revisar
+    database_instance_credentials = module.database.database-name #revisar
     database_password = "admin" #revisar sensitive variables
     }
