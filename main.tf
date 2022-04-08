@@ -134,3 +134,9 @@ module "frontend_bucket" {
     bucket_response_header = ["*"]
     bucket_max_age_seconds = 3600
 }
+/*
+module "database" {
+    source = "./src/modules/sql_services"
+
+}
+*/

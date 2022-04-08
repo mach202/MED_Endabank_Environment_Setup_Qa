@@ -18,13 +18,14 @@ variable "routing_mode" {
     type = string
     default = "GLOBAL"
 }
-
+/*
 variable "auto_create_subnetworks" {
     description = "in needed auto created subnets?"
     type = bool
     default = true
   
 }
+*/
 
 variable "private_ip_name" {
     description = "name for the private IP"

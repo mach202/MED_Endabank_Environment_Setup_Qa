@@ -12,7 +12,7 @@ resource "google_compute_network" "private_network" {
     #provider = var.provider
     name     = var.private_network_name
     routing_mode = var.routing_mode
-    auto_create_subnetworks = var.auto_create_subnetworks
+    #auto_create_subnetworks = var.auto_create_subnetworks
 }
 
 # Reserve global internal address range for the peering
