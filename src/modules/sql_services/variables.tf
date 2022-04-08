@@ -74,7 +74,7 @@ variable "reserved_peering_ranges" {
   
 }
 
-variable "database_name" {
+variable "database_instance" {
     description = "name of database"
     type = string
   

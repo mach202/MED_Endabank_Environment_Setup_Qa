@@ -47,7 +47,7 @@ resource "google_sql_database" "database" {
 resource "google_sql_database_instance" "database_primary" {
     #provider = var.provider
     name = var.database_instance_name
-    region = var.databse_region
+    region = var.database_region
     database_version = var.database_version
     depends_on = [
       var.depends_on_database#google_service_networking_connection.private_vpc_connection
@@ -66,6 +66,6 @@ resource "google_sql_database_instance" "database_primary" {
 
 resource "google_sql_user" "database_user" {
  name = var.database_user_name
- intance = var.database_instance_credentials  #google_sql_database_instance.database_primary.name
+ instance = var.database_instance_credentials  #google_sql_database_instance.database_primary.name
  password = var.database_password 
 }
