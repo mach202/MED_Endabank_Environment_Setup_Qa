@@ -54,7 +54,7 @@ module "ssh-endbank-rule" {
 module "jenkins-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    name = "jenkins-rule"
+    fw_name = "jenkins-rule"
     network = module.networking.network-name
     description = "allow http and https traffic"
     source_ranges = ["10.0.0.0/24"]
