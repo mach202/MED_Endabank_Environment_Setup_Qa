@@ -10,7 +10,7 @@ variable "instance_zone" {
   
 }
 
-variable "instace_type" {
+variable "instance_type" {
     description = "type of instance"
     type = string
   

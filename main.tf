@@ -113,5 +113,5 @@ module "ci-cd-jumbox-host" {
 
     depends_on = [module.management-subnet]
 
-    
+    script = "install-puppet.sh"
 }
