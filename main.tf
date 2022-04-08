@@ -36,7 +36,7 @@ module "kubernetes-subnet" {
 module "ssh-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    name = "ssh-rule"
+    fw_name = "ssh-rule"
     network = module.networking.network-name
     description = "allow http and https traffic"
     source_ranges = ["0.0.0.0/24"]
