@@ -27,7 +27,7 @@ module "kubernetes-subnet" {
     project_id = "endabank"
     subnet_name = "kubernetes-subnet"
     subnet_cidr_range = "10.0.1.0/24"
-    network = module.networking.network-name
+    network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
     
