@@ -4,8 +4,8 @@ resource "google_compute_router" "router" {
   network = var.network_id  # google_compute_network.net.id
   bgp {
     asn               = 64514
-    advertise_mode    = "CUSTOM"
-    advertised_groups = ["ALL_SUBNETS"]
+    #advertise_mode    = "CUSTOM"
+    #advertised_groups = ["ALL_SUBNETS"]
 
   }
 }
