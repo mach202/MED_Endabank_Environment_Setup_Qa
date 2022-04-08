@@ -40,7 +40,7 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 resource "google_sql_database" "database" {
     #provider = var.provider
     name = var.database_name
-    instanse = var.database_instance # google_sql_database_instance.database_primary.name
+    instance = var.database_instance # google_sql_database_instance.database_primary.name
 
 }
 
