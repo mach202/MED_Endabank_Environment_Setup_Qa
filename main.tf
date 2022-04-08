@@ -118,9 +118,9 @@ module "ci-cd-jumbox-host" {
 
 module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
-
-    project_id    = "endabank"
+    
     bucket_name         = "med-endabank-frotend"
+    project_id    = "endabank"
     bucket_region      = "us-central1 (Iowa)"
     bucket_force_destroy = true
 

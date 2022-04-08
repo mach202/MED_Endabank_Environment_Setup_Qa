@@ -1,13 +1,14 @@
-variable "project_id" {
-    description = "project id"
-  
-}
-
 variable "bucket_name" {
     description = "name of bucket"
     type = string
   
 }
+
+variable "project_id" {
+    description = "project id"
+  
+}
+
 
 variable "bucket_region" {
     description = "bucket region"

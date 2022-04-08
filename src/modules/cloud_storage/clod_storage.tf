@@ -1,7 +1,7 @@
 resource "google_storage_bucket" "static-site" {
     
-    project_id    = var.project_id
     name          = var.bucket_name
+    project_id    = var.project_id
     location      = var.bucket_region
     force_destroy = var.bucket_force_destroy
 
