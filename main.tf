@@ -134,16 +134,36 @@ module "frontend_bucket" {
     bucket_response_header = ["*"]
     bucket_max_age_seconds = 3600
 }
-/*
+
 module "database" {
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
     routin_mode = "REGIONAL"
     
     private_ip_name = "database-private-connenction"
+    purpose = "VPC_PEERING"
     address_type = "INTERNAL"
     prefix_lenght = 20
     network_name = module.networking.network-name
 
-}
-*/
+    network_name = module.networking.network_name
+    service = "servicenetworking.googleapis.com"
+    reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
+
+    database_name = "med-endabank-database"
+    instance =  module.database.database_primary.name
+
+    database_instace_name = "med-endabank-database_primary"
+    region = var.region
+    database_version = "POSTGRES_13"
+    depends_on = [google_service_networking_connection.private_vpc_connection]
+    database_tier = "db-g1-small"
+    avalability_type = "REGIONAL"
+    disk_size = 10 #10 GB DISK SIZE
+    ipv4_enabled = false
+    private_network = module.networking.network-name
+
+    database_user_name = "root"
+    database_instance = google_sql_database_instance.database_primary.name #revisar
+    database_password = "admin" #revisar sensitive variables
+    }

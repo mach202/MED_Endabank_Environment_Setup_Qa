@@ -104,7 +104,7 @@ variable "database_tier" {
 }
 
 variable "avalability_type" {
-    descdescription = "avalability type" 
+    description = "avalability type" 
     type = string
     default = "REGIONAL"
 
