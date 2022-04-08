@@ -2,7 +2,7 @@ module "networking" {
     source = "./src/modules/network"
 
     project_id = "endabank"
-    name_vpc = "med-endbank-vpc"
+    network_name = "med-endbank-vpc"
     auto_create_subnetworks = false
     delete_default_routes_on_create = false
     description = "VPC for Endabank bech project"
