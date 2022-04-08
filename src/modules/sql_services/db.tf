@@ -22,7 +22,7 @@ resource "google_compute_global_address" "private_ip_address" {
     purpose       = var.purpose
     address_type  = var.address_type
     prefix_length = var.prefix_length
-    network       = var.private_network_name_ip_adress #google_compute_network.private_network.self_link
+    network       = var.private_network_name_ip_address #google_compute_network.private_network.self_link
 }
 
 # Establish VPC network peering connection using the reserved address range
@@ -66,6 +66,6 @@ resource "google_sql_database_instance" "database_primary" {
 
 resource "google_sql_user" "database_user" {
  name = var.database_user_name
- intance = var.database_instance  #google_sql_database_instance.database_primary.name
+ intance = var.database_instance_credentials  #google_sql_database_instance.database_primary.name
  password = var.database_password 
 }

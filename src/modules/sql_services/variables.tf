@@ -51,6 +51,12 @@ variable "prefix_length" {
     default = 16
 }
 
+variable "private_network_name_ip_address" {
+    description = "IP addres network"
+    type = string
+
+
+}
 variable "network_name" {
     description = "network" #google_compute_network.private_network.self_link
   
@@ -140,5 +146,11 @@ variable "database_password" {
     description = "password of database"
     type = string
     default = "admin"
+  
+}
+
+variable "database_instance_credentials" {
+    description = "database instance credentiasl"
+    type = string
   
 }
