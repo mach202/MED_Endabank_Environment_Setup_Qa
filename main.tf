@@ -151,7 +151,7 @@ module "database" {
     reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
 
     database_name = "med-endabank-database"
-    database_instance =  module.database.database_primary.name
+    database_instance =  module.database.database_primary.database_instance_name
 
     database_instance_name = "med-endabank-database_primary"
     region = var.region
