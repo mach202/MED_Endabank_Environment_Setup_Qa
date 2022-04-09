@@ -136,7 +136,7 @@ variable "ipv4_enabled" {
   
 }
 
-variable "private_network" {
+variable "private_network_instance" {
     description = "the private network of the database" #google_compute_network.private_network.self_link
   
 }
