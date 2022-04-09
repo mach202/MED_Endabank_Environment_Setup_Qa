@@ -115,7 +115,7 @@ variable "database_tier" {
     default = "db-g1-small"
 }
 
-variable "availavility_type" {
+variable "availability_type" {
     description = "avalability type" 
     type = string
     default = "REGIONAL"

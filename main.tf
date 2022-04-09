@@ -158,7 +158,7 @@ module "database" {
     database_version = "POSTGRES_13"
     depends_on_database = module.database.depends_on_database#[google_service_networking_connection.private_vpc_connection]
     database_tier = "db-g1-small"
-    availavility_type = "REGIONAL"
+    availability_type = "REGIONAL"
     disk_size = 10 #10 GB DISK SIZE
     ipv4_enabled = false
     private_network = module.networking.network-name
