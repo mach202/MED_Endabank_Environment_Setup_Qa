@@ -161,7 +161,7 @@ module "database" {
     availability_type = "REGIONAL"
     disk_size = 10 #10 GB DISK SIZE
     ipv4_enabled = false
-    private_network = module.networking.network-name
+    private_network_name = module.networking.network-name
 
     database_user_name = "root"
     database_instance_credentials = module.database.database-name #revisar

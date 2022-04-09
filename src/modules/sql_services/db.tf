@@ -58,7 +58,7 @@ resource "google_sql_database_instance" "database_primary" {
         disk_size = var.disk_size
         ip_configuration{
             ipv4_enabled = var.ipv4_enabled 
-            private_network = var.private_network #google_compute_network.private_network.self_link
+            private_network = var.private_network_name #google_compute_network.private_network.self_link
         }
         
     }
