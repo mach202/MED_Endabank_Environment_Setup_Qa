@@ -148,7 +148,7 @@ module "database" {
 
     network_name = module.networking.network-name
     service = "servicenetworking.googleapis.com"
-    reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
+    reserved_peering_ranges = module.database.reserved_peering_ranges
 
     database_name = "med-endabank-database"
     database_instance =  module.database.database-name #module.database.database-name
@@ -156,7 +156,7 @@ module "database" {
     database_instance_name = "med-endabank-database_primary"
     database_region = var.region
     database_version = "POSTGRES_13"
-    depends_on_database = [google_service_networking_connection.private_vpc_connection]
+    depends_on_database = module.database.depends_on_database#[google_service_networking_connection.private_vpc_connection]
     database_tier = "db-g1-small"
     avalability_type = "REGIONAL"
     disk_size = 10 #10 GB DISK SIZE
