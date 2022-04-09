@@ -54,7 +54,7 @@ resource "google_sql_database_instance" "database_primary" {
     ]
     settings {
         tier = var.database_tier
-        avalability_type = var.avalability_type
+        availavility_type = var.availavility_type
         disk_size = var.disk_size
         ip_configuration{
             ipv4_enabled = var.ipv4_enabled 
