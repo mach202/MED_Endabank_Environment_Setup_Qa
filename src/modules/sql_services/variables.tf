@@ -7,7 +7,7 @@ variable "provider" {
   
 }
 *******************************/
-
+/*
 variable "private_network_name" {
     description = "name of the private network used for the database"
     type = string
@@ -18,6 +18,9 @@ variable "routing_mode" {
     type = string
     default = "GLOBAL"
 }
+
+*/
+
 /*
 variable "auto_create_subnetworks" {
     description = "in needed auto created subnets?"

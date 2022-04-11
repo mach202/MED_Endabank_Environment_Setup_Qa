@@ -1,4 +1,4 @@
-output "databse" {
+output "database" {
     description = "database"
     value = google_sql_database.database.self_link
 }
