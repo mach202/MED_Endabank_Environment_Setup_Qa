@@ -149,7 +149,7 @@ module "database" {
     prefix_length = 20
     private_network_name_ip_address = module.networking.network-name
 
-    network_name = module.networking.network-name
+    network_name = module.networking.network-self-link # .network-name
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = module.database.reserved_peering_ranges
 
@@ -170,4 +170,4 @@ module "database" {
     database_instance_credentials = module.database.database-name #revisar
     database_password = "admin" #revisar sensitive variables
     }
-    
+
