@@ -41,7 +41,7 @@ module "ssh-endbank-rule" {
     description = "allow http and https traffic"
     source_ranges = ["0.0.0.0/24"]
     protocol = "tcp"
-    ports = ["22, 80, 443"]
+    ports = ["22", "80", "443"]
     target_tags = ["http", "https"]
     
     depends_on = [module.networking]
