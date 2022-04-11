@@ -8,7 +8,7 @@ output "database-name" {
     value = google_sql_database_instance.database_primary.name
 } 
 
-output "reserved_peering_ranges" {
+output "reserved-peering-ranges" {
     description = "Private ip network name"
     value = [google_compute_global_address.private_ip_address.name]
   
