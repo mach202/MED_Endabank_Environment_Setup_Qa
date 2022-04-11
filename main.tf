@@ -42,7 +42,7 @@ module "ssh-endbank-rule" {
     source_ranges = ["0.0.0.0/24"]
     protocol = "tcp"
     ports = ["22, 80, 443"]
-    target_tags = ["http, https"]
+    target_tags = ["http", "https"]
     
     depends_on = [module.networking]
     
@@ -57,7 +57,7 @@ module "jenkins-endbank-rule" {
     source_ranges = ["10.0.0.0/24"]
     protocol = "tcp"
     ports = ["8080"]
-    target_tags = ["http, https"]
+    target_tags = ["http", "https"]
     depends_on = [module.networking]
     
 }
@@ -121,7 +121,7 @@ module "frontend_bucket" {
     
     bucket_name         = "med-endabank-frotend"
     project_id    = "iac-challenge-345123"
-    bucket_region      = "us-central1 (Iowa)"
+    bucket_region      = "us-central1"
     bucket_force_destroy = true
 
     uniform_bucket_level_access = true
@@ -136,10 +136,11 @@ module "frontend_bucket" {
 }
 
 module "database" {
+    /*
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
-    
+    */
     private_ip_name = "database-private-connenction"
     purpose = "VPC_PEERING"
     address_type = "INTERNAL"

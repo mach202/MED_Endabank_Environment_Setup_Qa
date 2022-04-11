@@ -7,7 +7,8 @@
 # ------------------------------------------------------------------------------
 # CREATE COMPUTE NETWORKS
 # ------------------------------------------------------------------------------
-# Simple network, auto-creates subnetworks
+# Simple network, auto-creates subnetworks\
+/*
 resource "google_compute_network" "private_network" {
     #provider = var.provider
     name     = var.private_network_name
@@ -15,6 +16,7 @@ resource "google_compute_network" "private_network" {
     #auto_create_subnetworks = var.auto_create_subnetworks
 }
 
+*/
 # Reserve global internal address range for the peering
 resource "google_compute_global_address" "private_ip_address" {
     #provider = var.provider
