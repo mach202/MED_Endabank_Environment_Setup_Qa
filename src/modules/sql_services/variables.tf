@@ -114,6 +114,8 @@ variable "database_version" {
 
 variable "deletion_protection" {
     description = "is the delection protection enabled or disabled"
+    type = bool
+    default = false
   
 }
 
