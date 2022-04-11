@@ -1,7 +1,7 @@
 module "networking" {
     source = "./src/modules/network"
 
-    project_id = "endabank"
+    project_id = "iac-challenge-345123"
     network_name = "med-endbank-vpc"
     auto_create_subnetworks = false
     delete_default_routes_on_create = false
@@ -12,7 +12,7 @@ module "networking" {
 module "management-subnet" {
     source = "./src/modules/subnet"
 
-    project_id = "endabank"
+    project_id = "iac-challenge-345123"
     subnet_name = "management-subnet"
     subnet_cidr_range = "10.0.0.0/24"
     network_name = module.networking.network-name
@@ -24,7 +24,7 @@ module "management-subnet" {
 module "kubernetes-subnet" {
     source = "./src/modules/subnet"
 
-    project_id = "endabank"
+    project_id = "iac-challenge-345123"
     subnet_name = "kubernetes-subnet"
     subnet_cidr_range = "10.0.1.0/24"
     network_name = module.networking.network-name
@@ -120,7 +120,7 @@ module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
     bucket_name         = "med-endabank-frotend"
-    project_id    = "endabank"
+    project_id    = "iac-challenge-345123"
     bucket_region      = "us-central1 (Iowa)"
     bucket_force_destroy = true
 

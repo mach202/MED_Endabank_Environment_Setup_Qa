@@ -18,7 +18,7 @@ variable "backend_name_workspace" {
 }
 */
 variable "project" {
-    default = "endabank"
+    default = "iac-challenge-345123"
   
 }
 
