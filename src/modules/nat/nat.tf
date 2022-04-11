@@ -12,8 +12,8 @@ resource "google_compute_router" "router" {
 
 resource "google_compute_router_nat" "nat" {
   name                               = var.nat_name
-  router                             = google_compute_router.router.name
-  region                             = google_compute_router.router.region
+  router                             = google_compute_router.router.name #var.router_name
+  region                             = google_compute_router.router.region #var.subnet_region
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
   subnetwork {
