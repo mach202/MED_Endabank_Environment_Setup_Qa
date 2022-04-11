@@ -52,6 +52,7 @@ resource "google_sql_database_instance" "database_primary" {
     name = var.database_instance_name
     region = var.database_region
     database_version = var.database_version
+    deletion_protection = var.deletion_protection
     depends_on = [
       var.depends_on_database#google_service_networking_connection.private_vpc_connection
     ]
