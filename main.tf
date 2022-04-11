@@ -157,7 +157,7 @@ module "database" {
     database_name = "med-endabank-database"
     database_instance =  module.database.database-name #module.database.database-name
 
-    database_instance_name = "med-endabank-database_primary"
+    database_instance_name = "med-endabank-database-primary"
     database_region = var.region
     database_version = "POSTGRES_13"
     depends_on_database = [module.database.depends-on-database]#[google_service_networking_connection.private_vpc_connection]
