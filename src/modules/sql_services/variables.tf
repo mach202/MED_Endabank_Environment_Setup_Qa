@@ -48,6 +48,10 @@ variable "address_type" {
   
 }
 
+variable "private_ip_address_version" {
+    description = "ip version"
+  
+}
 variable "prefix_length" {
     description = "prefix lenght"
     type = number
