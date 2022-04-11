@@ -141,6 +141,8 @@ module "database" {
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
     */
+    source = "./src/modules/sql_services"
+    
     private_ip_name = "database-private-connenction"
     purpose = "VPC_PEERING"
     address_type = "INTERNAL"
