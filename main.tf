@@ -160,7 +160,7 @@ module "database" {
     database_instance_name = "med-endabank-database_primary"
     database_region = var.region
     database_version = "POSTGRES_13"
-    depends_on_database = module.database.depends_on_database#[google_service_networking_connection.private_vpc_connection]
+    depends_on_database = [module.database.depends-on-database]#[google_service_networking_connection.private_vpc_connection]
     database_tier = "db-g1-small"
     availability_type = "REGIONAL"
     disk_size = 10 #10 GB DISK SIZE

@@ -14,7 +14,7 @@ output "reserved_peering_ranges" {
   
 }
 
-output "depends_on_database" {
+output "depends-on-database" {
     description = "depend connection for database "
     value = [google_service_networking_connection.private_vpc_connection]
 }
