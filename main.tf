@@ -135,12 +135,16 @@ module "frontend_bucket" {
     bucket_max_age_seconds = 3600
 }
 
-module "database" {
+
+#module "database" {   #database module
     /*
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
     */
+
+/*
+    
     source = "./src/modules/sql_services"
     
     private_ip_name = "database-private-connenction"
@@ -172,6 +176,9 @@ module "database" {
     database_instance_credentials = module.database.database-name #revisar
     database_password = "admin" #revisar sensitive variables
     }
+
+*/
+
 
 
 
