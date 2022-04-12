@@ -46,7 +46,7 @@ module "ssh-endbank-rule" {
     source_ranges = ["0.0.0.0/0"]
     protocol = "tcp"
     ports = ["22", "80", "443"]
-    target_tags = ["http", "https"]
+    target_tags = ["http-server", "https-server"]
     
     depends_on = [module.networking]
     
@@ -61,7 +61,7 @@ module "jenkins-endbank-rule" {
     source_ranges = ["0.0.0.0/0"]
     protocol = "tcp"
     ports = ["8080"]
-    target_tags = ["http", "https","jumbox"]
+    target_tags = ["http-server", "https-server","jumbox-host"]
     depends_on = [module.networking]
     
 }
@@ -87,7 +87,7 @@ module "kubernetes-nodes" {
     count = 3
     instance_name = count.index == 0 ? "master-node" : "worker-node-${count.index}"
     instance_zone = "us-central1-a"
-    tags = ["http, https"]
+    tags = ["http-server", "https-server"]
     instance_type = "e2-medium"
     allow_stopping_for_update = true
 
@@ -107,7 +107,7 @@ module "ci-cd-jumbox-host" {
 
     instance_name = "ci-cd-jumbox-host"
     instance_zone = "us-central1-a"
-    tags = ["http, https", "jumpbox"]
+    tags = ["http-server", "https-server", "jumpbox-host"]
     instance_type = "e2-medium"
     allow_stopping_for_update = true
 
