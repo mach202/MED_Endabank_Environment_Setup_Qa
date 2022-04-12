@@ -10,6 +10,12 @@ variable "instance_zone" {
   
 }
 
+variable "tags" {
+    description = "tags for firewall rule"
+    type = list(string)
+    default = []
+  
+}
 variable "instance_type" {
     description = "type of instance"
     type = string

@@ -19,6 +19,8 @@ module "management-subnet" {
     region = "us-central1"
     private_ip_google_access = "false"
 
+    depends_on = [module.networking]
+
 }
 
 module "kubernetes-subnet" {
@@ -30,6 +32,8 @@ module "kubernetes-subnet" {
     network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
+
+    depends_on = [module.networking]
     
 }
 
@@ -39,10 +43,10 @@ module "ssh-endbank-rule" {
     fw_name = "ssh-rule"
     network = module.networking.network-name
     description = "allow http and https traffic"
-    source_ranges = ["0.0.0.0/24"]
+    source_ranges = ["0.0.0.0/0"]
     protocol = "tcp"
     ports = ["22", "80", "443"]
-    target_tags = ["http", "https"]
+    target_tags = ["http-server", "https-server"]
     
     depends_on = [module.networking]
     
@@ -54,10 +58,10 @@ module "jenkins-endbank-rule" {
     fw_name = "jenkins-rule"
     network = module.networking.network-name
     description = "allow http and https traffic"
-    source_ranges = ["10.0.0.0/24"]
+    source_ranges = ["0.0.0.0/0"]
     protocol = "tcp"
     ports = ["8080"]
-    target_tags = ["http", "https"]
+    target_tags = ["http-server", "https-sever","jumbox-host"]
     depends_on = [module.networking]
     
 }
@@ -83,6 +87,7 @@ module "kubernetes-nodes" {
     count = 3
     instance_name = count.index == 0 ? "master-node" : "worker-node-${count.index}"
     instance_zone = "us-central1-a"
+    tags = ["http-server, https-server"]
     instance_type = "e2-medium"
     allow_stopping_for_update = true
 
@@ -102,6 +107,7 @@ module "ci-cd-jumbox-host" {
 
     instance_name = "ci-cd-jumbox-host"
     instance_zone = "us-central1-a"
+    tags = ["http-server, https-server", "jumpbox-host"]
     instance_type = "e2-medium"
     allow_stopping_for_update = true
 

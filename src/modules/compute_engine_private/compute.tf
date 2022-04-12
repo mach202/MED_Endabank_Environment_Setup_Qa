@@ -1,6 +1,7 @@
 resource "google_compute_instance" "default" {
     name = var.instance_name
     zone = var. instance_zone
+    tags = var.tags
     machine_type = var.instance_type
     allow_stopping_for_update = var.allow_stopping_for_update
     boot_disk {
