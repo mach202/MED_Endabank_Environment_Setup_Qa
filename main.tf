@@ -88,6 +88,7 @@ module "kubernetes-nodes" {
     instance_name = count.index == 0 ? "master-node" : "worker-node-${count.index}"
     instance_zone = "us-central1-a"
     tags = ["http-server", "https-server"]
+    can_ip_forward = true
     instance_type = "e2-medium"
     allow_stopping_for_update = true
 
