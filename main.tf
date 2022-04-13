@@ -94,8 +94,6 @@ module "kubernetes-nodes" {
 
     instance_image = "debian-10-buster-v20220118"
 
-    #tags = ["${concat(list("${var.name}-ssh", "${var.name}"), var.node_tags)}"]
-
     subnetwork = module.kubernetes-subnet.subnet-id
 
     depends_on = [module.kubernetes-subnet]
@@ -113,8 +111,6 @@ module "ci-cd-jumbox-host" {
     allow_stopping_for_update = true
 
     instance_image = "debian-10-buster-v20220118"
-
-    #tags = ["${concat(list("${var.name}-ssh", "${var.name}"), var.node_tags)}"]
 
     subnetwork = module.management-subnet.subnet-id
 
