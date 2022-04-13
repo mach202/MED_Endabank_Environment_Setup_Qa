@@ -2,6 +2,7 @@ resource "google_compute_instance" "default" {
     name = var.instance_name
     zone = var. instance_zone
     tags = var.tags
+    can_ip_forward = var.can_ip_forward
     machine_type = var.instance_type
     allow_stopping_for_update = var.allow_stopping_for_update
     boot_disk {
@@ -9,7 +10,7 @@ resource "google_compute_instance" "default" {
           image = var.instance_image
       }
     }
-    #tags = ["${concat(list("${var.name}-ssh", "${var.name}"), var.node_tags)}"]
+   
      network_interface {
         subnetwork = var.subnetwork 
     }

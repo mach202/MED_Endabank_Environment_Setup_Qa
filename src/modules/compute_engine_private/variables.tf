@@ -17,6 +17,12 @@ variable "tags" {
 
 }
 
+variable "can_ip_forward" {
+    description = "IP forwarding is enabled or not?"
+    type = bool
+    default = false
+    
+}
 variable "instance_type" {
     description = "type of instance"
     type = string
