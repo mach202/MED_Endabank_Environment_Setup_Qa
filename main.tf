@@ -57,7 +57,7 @@ module "jenkins-endbank-rule" {
 
     fw_name = "jenkins-rule"
     network = module.networking.network-name
-    description = "allow http and https traffic"
+    description = "allow jenkins port"
     source_ranges = ["0.0.0.0/0"]
     protocol = "tcp"
     ports = ["8080"]
@@ -66,6 +66,20 @@ module "jenkins-endbank-rule" {
     
 }
 
+module "kubeadm-endabank-rule" {
+    source = "./src/modules/firewall_rules"
+
+    fw_name = "kubeadm-rule"
+    network = module.networking.network-name
+    description = "allow kubernetes ports"
+    source_ranges = ["0.0.0.0/0"]
+    protocol = "tcp"
+    ports = ["8080","6443","2379","2380","10250","10259","10257"]
+    target_tags = ["kubeadm"]
+    depends_on = [module.networking]
+
+  
+}
 module "cloud-nat" {
     source = "./src/modules/nat"
 
