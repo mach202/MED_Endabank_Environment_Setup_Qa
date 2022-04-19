@@ -14,5 +14,6 @@ resource "google_compute_instance" "default" {
      network_interface {
         subnetwork = var.subnetwork 
     }
+    metadata_startup_script = file(var.script_instances)
 
 }

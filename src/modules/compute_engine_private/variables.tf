@@ -46,3 +46,9 @@ variable "subnetwork" {
     description = "subnetwork asing to the intance"
     type = string
 }
+
+variable "script_instances" {
+    description = "starup script master"
+    type = string
+  
+}
