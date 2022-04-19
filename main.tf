@@ -110,7 +110,7 @@ module "kubernetes-nodes" {
 
     subnetwork = module.kubernetes-subnet.subnet-id
 
-    script_instances = count.index == 0? "install-kubernetes-master" : "install-kubernetes-worker"
+    script_instances = count.index == 0? "install-kubernetes-master.sh" : "install-kubernetes-worker.sh"
 
     depends_on = [module.kubernetes-subnet]
 
