@@ -1,15 +1,17 @@
 #bin/sh
 # install docker 
 
-apt-get remove docker docker-engine docker.io containerd runc # desinstalar posibles versiones de docker 
-apt-get update # actualizar repositorios 
-apt-get -y install ca-certificates curl gnupg lsb-release # instalar dependencias 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg  # añadir repositorio de docker 
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get update
-apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt update 
+sudo apt upgrade
+sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo apt-get install software-properties-common
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
+#docker --version
+
 systemctl start docker
 systemctl enable docker
 echo -e '{\n    "exec-opts": ["native.cgroupdriver=systemd"]\n}' >> /etc/docker/daemon.json
@@ -24,13 +26,13 @@ net.bridge.bridge-nf-call-iptables = 1
 EOF
 sudo sysctl --system
 
-apt-get update 
-apt-get install -y apt-transport-https ca-certificates curl
+sudo apt-get update 
+sudo apt-get install -y apt-transport-https ca-certificates curl
 curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-apt-get update
-apt-get install -y kubelet kubeadm kubectl
-apt-mark hold kubelet kubeadm kubectl
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
 systemctl start kubelet
 systemctl enable kubelet
 
