@@ -117,7 +117,6 @@ module "kubernetes-nodes" {
     
 }
 
-
 module "ci-cd-jumbox-host" {
     source = "./src/modules/compute_engine_public"
 
