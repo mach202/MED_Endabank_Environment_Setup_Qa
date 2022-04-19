@@ -14,7 +14,7 @@ module "management-subnet" {
 
     project_id = "iac-challenge-345123"
     subnet_name = "management-subnet"
-    subnet_cidr_range = "10.0.0.0/24"
+    subnet_cidr_range = "10.0.0.0/16"
     network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
@@ -28,7 +28,7 @@ module "kubernetes-subnet" {
 
     project_id = "iac-challenge-345123"
     subnet_name = "kubernetes-subnet"
-    subnet_cidr_range = "10.0.1.0/24"
+    subnet_cidr_range = "10.0.1.0/16"
     network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
@@ -130,6 +130,7 @@ module "ci-cd-jumbox-host" {
     allow_stopping_for_update = true
     
     instance_image = "ubuntu-os-cloud/ubuntu-1804-lts"
+
     #instance_image = "debian-10-buster-v20220118"
 
     subnetwork = module.management-subnet.subnet-id
