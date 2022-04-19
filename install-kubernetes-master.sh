@@ -16,6 +16,8 @@ systemctl start docker
 systemctl enable docker
 echo -e '{\n    "exec-opts": ["native.cgroupdriver=systemd"]\n}' >> /etc/docker/daemon.json
 systemctl restart docker
+
+sudo su
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 br_netfilter
 EOF
