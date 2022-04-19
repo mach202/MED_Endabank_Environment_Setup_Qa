@@ -47,8 +47,11 @@ variable "subnetwork" {
     type = string
 }
 
+/*
 variable "script_instances" {
     description = "starup script master"
     type = string
   
 }
+*/
+
