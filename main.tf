@@ -14,7 +14,7 @@ module "management-subnet" {
 
     project_id = "iac-challenge-345123"
     subnet_name = "management-subnet"
-    subnet_cidr_range = "10.0.0.0/16"
+    subnet_cidr_range = "10.0.0.0/24"
     network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
@@ -29,7 +29,7 @@ module "kubernetes-subnet" {
 
     project_id = "iac-challenge-345123"
     subnet_name = "kubernetes-subnet"
-    subnet_cidr_range = "10.0.1.0/16"
+    subnet_cidr_range = "10.0.1.0/24"
     network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
