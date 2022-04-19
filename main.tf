@@ -106,7 +106,9 @@ module "kubernetes-nodes" {
     instance_type = "e2-medium"
     allow_stopping_for_update = true
 
-    instance_image = "debian-10-buster-v20220118"
+    instance_image = "ubuntu-os-cloud/ubuntu-1804-lts"
+
+    #instance_image ="debian-10-buster-v20220118"
 
     subnetwork = module.kubernetes-subnet.subnet-id
 
@@ -125,8 +127,9 @@ module "ci-cd-jumbox-host" {
     tags = ["http-server", "https-server", "jumpbox-host"]
     instance_type = "e2-medium"
     allow_stopping_for_update = true
-
-    instance_image = "debian-10-buster-v20220118"
+    
+    instance_image = "ubuntu-os-cloud/ubuntu-1804-lts"
+    #instance_image = "debian-10-buster-v20220118"
 
     subnetwork = module.management-subnet.subnet-id
 
