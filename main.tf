@@ -181,7 +181,7 @@ module "database" {   #database module
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = module.database.reserved-peering-ranges
 
-    database_name = "med-endabank-database1"
+    database_name = "med-endabank-database3"
     database_instance =  module.database.database-name #module.database.database-name
 
     database_instance_name = "med-endabank-database-primary3"
