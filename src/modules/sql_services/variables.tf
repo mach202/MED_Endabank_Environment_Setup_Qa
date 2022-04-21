@@ -38,13 +38,13 @@ variable "private_ip_name" {
 variable "purpose" {
     description = "database purpose"
     type = string
-    default = "VPC_PEERING"
+    #default = "VPC_PEERING"
 }
 
 variable "address_type" {
     description = "addres type"
     type = string
-    default = "INTERNAL"
+    #default = "INTERNAL"
   
 }
 
@@ -55,7 +55,7 @@ variable "private_ip_address_version" {
 variable "prefix_length" {
     description = "prefix lenght"
     type = number
-    default = 16
+    #default = 16
 }
 
 variable "private_network_name_ip_address" {
@@ -72,7 +72,7 @@ variable "network_name" {
 variable "service" {
     description = "network service"
     type = string
-    default = "servicenetworking.googleapis.com"
+    #default = "servicenetworking.googleapis.com"
   
 }
 
@@ -102,13 +102,13 @@ variable "database_instance_name" {
 variable "database_region" {
     description = "region of database location"
     type = string
-    default = "us-central1"
+    #default = "us-central1"
 }
 
 variable "database_version" {
     description = "data base version"
     type = string
-    default = "POSTGRES_13"
+    #default = "POSTGRES_13"
   
 }
 
@@ -132,7 +132,7 @@ variable "database_tier" {
 variable "availability_type" {
     description = "avalability type" 
     type = string
-    default = "REGIONAL"
+    #default = "REGIONAL"
 
 }
 
@@ -158,15 +158,8 @@ variable "private_network_instance" {
 variable "database_user_name" {
     description = "username of the database"
     type = string
-    default = "root"
- 
-}
-
-variable "database_password" {
-    description = "password of database"
-    type = string
-    default = "admin"
-  
+    #default = "root"
+    sensitive = true
 }
 
 variable "database_instance_credentials" {
@@ -174,3 +167,12 @@ variable "database_instance_credentials" {
     type = string
   
 }
+
+variable "database_password" {
+    description = "password of database"
+    type = string
+    #default = "admin"
+    sensitive = true
+  
+}
+
