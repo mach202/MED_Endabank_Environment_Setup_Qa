@@ -166,8 +166,7 @@ module "database" {   #database module
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
     */
-
-
+    
     
     source = "./src/modules/sql_services"
     
