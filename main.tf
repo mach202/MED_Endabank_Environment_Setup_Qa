@@ -184,7 +184,7 @@ module "database" {   #database module
     database_name = "med-endabank-database1"
     database_instance =  module.database.database-name #module.database.database-name
 
-    database_instance_name = "med-endabank-database-primary2"
+    database_instance_name = "med-endabank-database-primary3"
     database_region = var.region
     database_version = "MYSQL_5_7"#"POSTGRES_13"
     deletion_protection = false
