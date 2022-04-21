@@ -166,7 +166,7 @@ module "database" {   #database module
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
     */
-    
+
     
     source = "./src/modules/sql_services"
     
@@ -181,10 +181,10 @@ module "database" {   #database module
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = module.database.reserved-peering-ranges
 
-    database_name = "med-endabank-database"
+    database_name = "med-endabank-database1"
     database_instance =  module.database.database-name #module.database.database-name
 
-    database_instance_name = "med-endabank-database-primary"
+    database_instance_name = "med-endabank-database-primary1"
     database_region = var.region
     database_version = "POSTGRES_13"
     deletion_protection = false
@@ -195,9 +195,9 @@ module "database" {   #database module
     ipv4_enabled = false
     private_network_instance = module.networking.network-self-link
 
-    database_user_name = "root"
+    database_user_name = var.db_user#"root"
     database_instance_credentials = module.database.database-name #revisar
-    database_password = "admin" #revisar sensitive variables
+    database_password = var.db_password#"admin" #revisar sensitive variables
     }
 
 
