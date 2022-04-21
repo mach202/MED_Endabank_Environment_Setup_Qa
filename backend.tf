@@ -4,7 +4,7 @@ terraform {
       organization = "med-endabank"
 
     workspaces {
-      name = "cloud-environmet"
+      name = "cloud-environment"
     }
   }
 }

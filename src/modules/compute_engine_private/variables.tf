@@ -10,6 +10,19 @@ variable "instance_zone" {
   
 }
 
+variable "tags" {
+    description = "tags for firewall rules"
+    type = list(string)
+    default = []
+
+}
+
+variable "can_ip_forward" {
+    description = "IP forwarding is enabled or not?"
+    type = bool
+    default = false
+    
+}
 variable "instance_type" {
     description = "type of instance"
     type = string
@@ -33,3 +46,12 @@ variable "subnetwork" {
     description = "subnetwork asing to the intance"
     type = string
 }
+
+/*
+variable "script_instances" {
+    description = "starup script master"
+    type = string
+  
+}
+*/
+
