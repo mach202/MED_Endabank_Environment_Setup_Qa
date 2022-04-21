@@ -74,7 +74,7 @@ module "kubeadm-endabank-rule" {
     description = "allow kubernetes ports"
     source_ranges = ["0.0.0.0/0"]
     protocol = "tcp"
-    ports = ["8080","6443","2379","2380","10250","10259","10257"]
+    ports = ["8080","6443","2379","2380","10250","10259","10257","30021"]
     target_tags = ["kubeadm"]
     depends_on = [module.networking]
 
