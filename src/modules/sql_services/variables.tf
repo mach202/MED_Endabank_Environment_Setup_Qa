@@ -143,6 +143,17 @@ variable "disk_size" {
   
 }
 
+variable "database_backup" {
+    description = "is backup enabled?"
+    type = bool
+  
+}
+
+variable "database_binary_log_enabled" {
+    description = "is binary log enabled"
+    type = bool
+  
+}
 variable "ipv4_enabled" {
     description = "the database need a public ip?"
     type = bool

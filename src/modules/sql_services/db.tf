@@ -60,6 +60,10 @@ resource "google_sql_database_instance" "database_primary" {
         tier = var.database_tier
         availability_type = var.availability_type
         disk_size = var.disk_size
+    backup_configuration {
+        enabled = var.database_backup
+        binary_log_enabled = var.database_binary_log_enabled
+    }
         ip_configuration{
             ipv4_enabled = var.ipv4_enabled 
             private_network = var.private_network_instance #google_compute_network.private_network.self_link
