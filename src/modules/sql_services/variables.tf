@@ -158,7 +158,7 @@ variable "private_network_instance" {
 variable "database_user_name" {
     description = "username of the database"
     type = string
-    #default = "root"
+    default = "root"
     #sensitive = true
 }
 
@@ -171,7 +171,7 @@ variable "database_instance_credentials" {
 variable "database_password" {
     description = "password of database"
     type = string
-    #default = "admin"
+    default = "admin"
     #sensitive = true
   
 }
