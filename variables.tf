@@ -1,5 +1,4 @@
 variable "GCP_SERVICES" {
-  
 }
 /*
 variable "backend_hostname" {
@@ -32,6 +31,7 @@ variable "zone" {
   
 }
 
+/*
 variable "db_user" {
   
 }
@@ -39,3 +39,4 @@ variable "db_user" {
 variable "db_password" {
   
 }
+*/

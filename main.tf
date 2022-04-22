@@ -143,7 +143,7 @@ module "ci-cd-jumbox-host" {
 module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
-    bucket_name         = "med-endabank-frotend"
+    bucket_name         = "med-endabank-frotend2"
     project_id    = "iac-challenge-345123"
     bucket_region      = "us-central1"
     bucket_force_destroy = true
@@ -160,13 +160,14 @@ module "frontend_bucket" {
 }
 
 
-module "database" {   #database module
+#module "database" {   #database module
     /*
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
     */
 
+/*
     
     source = "./src/modules/sql_services"
     
@@ -181,12 +182,12 @@ module "database" {   #database module
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = module.database.reserved-peering-ranges
 
-    database_name = "med-endabank-database1"
+    database_name = "med-endabank-database3"
     database_instance =  module.database.database-name #module.database.database-name
 
-    database_instance_name = "med-endabank-database-primary1"
+    database_instance_name = "med-endabank-database-primary3"
     database_region = var.region
-    database_version = "POSTGRES_13"
+    database_version = "MYSQL_5_7"#"POSTGRES_13"
     deletion_protection = false
     depends_on_database = [module.database.depends-on-database]#[google_service_networking_connection.private_vpc_connection]
     database_tier = "db-g1-small"
@@ -195,7 +196,13 @@ module "database" {   #database module
     ipv4_enabled = false
     private_network_instance = module.networking.network-self-link
 
-    database_user_name = var.db_user#"root"
+    database_user_name = "root" #var.db_user#"root"
     database_instance_credentials = module.database.database-name #revisar
-    database_password = var.db_password#"admin" #revisar sensitive variables
+    database_password = "admin" #var.db_password#"admin" #revisar sensitive variables
     }
+
+*/
+
+
+
+
