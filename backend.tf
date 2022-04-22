@@ -1,10 +1,10 @@
 terraform {
   backend "remote"{
       hostname ="app.terraform.io"
-      organization = "med-endabank"
+      organization = "Medellin-Med-Endabank"
 
     workspaces {
-      name = "cloud-environment"
+      name = "MED_Endabank_Environment_Setup"
     }
   }
 }

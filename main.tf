@@ -160,15 +160,14 @@ module "frontend_bucket" {
 }
 
 
-#module "database" {   #database module
+module "database" {   #database module
     /*
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
     */
 
-/*
-    
+
     source = "./src/modules/sql_services"
     
     private_ip_name = "database-private-connenction"
@@ -196,12 +195,12 @@ module "frontend_bucket" {
     ipv4_enabled = false
     private_network_instance = module.networking.network-self-link
 
-    database_user_name = "root" #var.db_user#"root"
+    database_user_name = var.db_user#"root"
     database_instance_credentials = module.database.database-name #revisar
-    database_password = "admin" #var.db_password#"admin" #revisar sensitive variables
+    database_password = var.db_password#"admin" #revisar sensitive variables
     }
 
-*/
+
 
 
 
