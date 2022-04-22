@@ -187,7 +187,7 @@ module "frontend_bucket" {
 
     database_instance_name = "med-endabank-database-primary3"
     database_region = var.region
-    database_version = "MYSQL_5_7"#"POSTGRES_13"
+    database_version = "POSTGRES_13"
     deletion_protection = false
     depends_on_database = [module.database.depends-on-database]#[google_service_networking_connection.private_vpc_connection]
     database_tier = "db-g1-small"
@@ -196,9 +196,9 @@ module "frontend_bucket" {
     ipv4_enabled = false
     private_network_instance = module.networking.network-self-link
 
-    database_user_name = "root" #var.db_user#"root"
+    database_user_name =  #var.db_user#"root"
     database_instance_credentials = module.database.database-name #revisar
-    database_password = "admin" #var.db_password#"admin" #revisar sensitive variables
+    database_password = #var.db_password#"admin" #revisar sensitive variables
     }
 
 */
