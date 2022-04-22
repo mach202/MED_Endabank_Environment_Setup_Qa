@@ -160,13 +160,14 @@ module "frontend_bucket" {
 }
 
 
-module "database" {   #database module
+#module "database" {   #database module
     /*
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
     */
 
+/*
     
     source = "./src/modules/sql_services"
     
@@ -200,3 +201,4 @@ module "database" {   #database module
     database_password = "admin" #var.db_password#"admin" #revisar sensitive variables
     }
 
+*/
