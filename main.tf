@@ -195,7 +195,9 @@ module "database" {   #database module
     ipv4_enabled = false
     private_network_instance = module.networking.network-self-link
 
-
+    database_user_name = var.db_user#"root"
+    database_instance_credentials = module.database.database-name #revisar
+    database_password = var.db_password#"admin" #revisar sensitive variables
     }
 
 
