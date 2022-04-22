@@ -143,7 +143,7 @@ module "ci-cd-jumbox-host" {
 module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
-    bucket_name         = "med-endabank-frotend"
+    bucket_name         = "med-endabank-frotend1"
     project_id    = "iac-challenge-345123"
     bucket_region      = "us-central1"
     bucket_force_destroy = true
@@ -199,7 +199,4 @@ module "database" {   #database module
     database_instance_credentials = module.database.database-name #revisar
     database_password = var.db_password#"admin" #revisar sensitive variables
     }
-
-
-
 
