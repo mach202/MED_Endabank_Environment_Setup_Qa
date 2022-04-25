@@ -1,7 +1,7 @@
 module "networking" {
     source = "./src/modules/network"
 
-    project_id = "iac-challenge-345123"
+    project_id = "medellin-med"
     network_name = "medellin-med-endbank-vpc"
     auto_create_subnetworks = false
     delete_default_routes_on_create = false
@@ -12,7 +12,7 @@ module "networking" {
 module "management-subnet" {
     source = "./src/modules/subnet"
 
-    project_id = "iac-challenge-345123"
+    project_id = "medellin-med"
     subnet_name = "medellin-med-management-subnet"
     subnet_cidr_range = "10.0.0.0/24"
     network_name = module.networking.network-name
@@ -26,7 +26,7 @@ module "management-subnet" {
 module "kubernetes-subnet" {
     source = "./src/modules/subnet"
 
-    project_id = "iac-challenge-345123"
+    project_id = "medellin-med"
     subnet_name = "medellin-med-kubernetes-subnet"
     subnet_cidr_range = "10.0.1.0/24"
     network_name = module.networking.network-name
@@ -144,7 +144,7 @@ module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
     bucket_name         = "medellin-med-endabank-frotend"
-    project_id    = "iac-challenge-345123"
+    project_id    = "medellin-med"
     bucket_region      = "us-central1"
     bucket_force_destroy = true
 
@@ -200,7 +200,7 @@ module "database" {   #database module
     database_user_name = var.db_user#"root"
     database_instance_credentials = module.database.database-name #revisar
     database_password = var.db_password#"admin" #revisar sensitive variables
-    }
+}
 
 
 
