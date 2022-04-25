@@ -83,7 +83,7 @@ module "kubeadm-endabank-rule" {
 module "cloud-nat" {
     source = "./src/modules/nat"
 
-    router_name = "medellin-med-endabank-endabank-router"
+    router_name = "medellin-med-endabank-router"
     subnet_region = module.kubernetes-subnet.subnet-region
     network_id = module.networking.network-id
 
@@ -143,7 +143,7 @@ module "ci-cd-jumbox-host" {
 module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
-    bucket_name             = "medellin-med-endabank-endabank-frotend"
+    bucket_name             = "medellin-med-endabank-frotend"
     project_id              = "medellin-med"
     bucket_region           = "us-central1"
     bucket_force_destroy    = true
