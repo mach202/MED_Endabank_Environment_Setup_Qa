@@ -17,7 +17,7 @@ variable "backend_name_workspace" {
 }
 */
 variable "project" {
-    default = "iac-challenge-345123"
+    default = "medellin-med"
   
 }
 
