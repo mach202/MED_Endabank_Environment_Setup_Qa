@@ -31,7 +31,7 @@ variable "zone" {
   
 }
 
-/*
+
 variable "db_user" {
   
 }
@@ -39,4 +39,4 @@ variable "db_user" {
 variable "db_password" {
   
 }
-*/
+

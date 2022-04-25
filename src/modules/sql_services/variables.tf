@@ -143,6 +143,17 @@ variable "disk_size" {
   
 }
 
+variable "database_backup" {
+    description = "is backup enabled?"
+    type = bool
+  
+}
+
+variable "database_binary_log_enabled" {
+    description = "is binary log enabled"
+    type = bool
+  
+}
 variable "ipv4_enabled" {
     description = "the database need a public ip?"
     type = bool
@@ -158,8 +169,8 @@ variable "private_network_instance" {
 variable "database_user_name" {
     description = "username of the database"
     type = string
-    default = "root"
-    #sensitive = true
+    #default = "root"
+    sensitive = true
 }
 
 variable "database_instance_credentials" {
@@ -171,8 +182,8 @@ variable "database_instance_credentials" {
 variable "database_password" {
     description = "password of database"
     type = string
-    default = "admin"
-    #sensitive = true
+    #default = "admin"
+    sensitive = true
   
 }
 

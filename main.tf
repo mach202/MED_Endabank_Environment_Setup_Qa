@@ -2,7 +2,7 @@ module "networking" {
     source = "./src/modules/network"
 
     project_id = "iac-challenge-345123"
-    network_name = "med-endbank-vpc"
+    network_name = "medellin-med-endbank-vpc"
     auto_create_subnetworks = false
     delete_default_routes_on_create = false
     description = "VPC for Endabank bech project"
@@ -13,7 +13,7 @@ module "management-subnet" {
     source = "./src/modules/subnet"
 
     project_id = "iac-challenge-345123"
-    subnet_name = "management-subnet"
+    subnet_name = "medellin-med-management-subnet"
     subnet_cidr_range = "10.0.0.0/24"
     network_name = module.networking.network-name
     region = "us-central1"
@@ -27,7 +27,7 @@ module "kubernetes-subnet" {
     source = "./src/modules/subnet"
 
     project_id = "iac-challenge-345123"
-    subnet_name = "kubernetes-subnet"
+    subnet_name = "medellin-med-kubernetes-subnet"
     subnet_cidr_range = "10.0.1.0/24"
     network_name = module.networking.network-name
     region = "us-central1"
@@ -40,7 +40,7 @@ module "kubernetes-subnet" {
 module "ssh-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "ssh-rule"
+    fw_name = "medellin-med-ssh-rule"
     network = module.networking.network-name
     description = "allow http and https traffic"
     source_ranges = ["0.0.0.0/0"]
@@ -55,7 +55,7 @@ module "ssh-endbank-rule" {
 module "jenkins-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "jenkins-rule"
+    fw_name = "medellin-med-jenkins-rule"
     network = module.networking.network-name
     description = "allow jenkins port"
     source_ranges = ["0.0.0.0/0"]
@@ -69,7 +69,7 @@ module "jenkins-endbank-rule" {
 module "kubeadm-endabank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "kubeadm-rule"
+    fw_name = "medellin-med-kubeadm-rule"
     network = module.networking.network-name
     description = "allow kubernetes ports"
     source_ranges = ["0.0.0.0/0"]
@@ -83,12 +83,12 @@ module "kubeadm-endabank-rule" {
 module "cloud-nat" {
     source = "./src/modules/nat"
 
-    router_name = "med-endabank-router"
+    router_name = "medellin-med-med-endabank-router"
     subnet_region = module.kubernetes-subnet.subnet-region
     network_id = module.networking.network-id
 
     
-    nat_name = "med-endabank-nat"
+    nat_name = "medellin-med-med-endabank-nat"
     source_subnet_id = module.kubernetes-subnet.subnet-id
 
     depends_on = [module.kubernetes-subnet]
@@ -100,7 +100,7 @@ module "kubernetes-nodes" {
     source = "./src/modules/compute_engine_private"
 
     count = 3
-    instance_name = count.index == 0 ? "master-node" : "worker-node-${count.index}"
+    instance_name = count.index == 0 ? "medellin-med-master-node" : "medellin-med-worker-node-${count.index}"
     instance_zone = "us-central1-a"
     tags = ["http-server", "https-server", "kubeadm"]
     can_ip_forward = true
@@ -123,7 +123,7 @@ module "kubernetes-nodes" {
 module "ci-cd-jumbox-host" {
     source = "./src/modules/compute_engine_public"
 
-    instance_name = "ci-cd-jumbox-host"
+    instance_name = "medellin-med-ci-cd-jumbox-host"
     instance_zone = "us-central1-a"
     tags = ["http-server", "https-server", "jumpbox-host"]
     instance_type = "e2-medium"
@@ -143,7 +143,7 @@ module "ci-cd-jumbox-host" {
 module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
-    bucket_name         = "med-endabank-frotend2"
+    bucket_name         = "medellin-med-endabank-frotend"
     project_id    = "iac-challenge-345123"
     bucket_region      = "us-central1"
     bucket_force_destroy = true
@@ -160,15 +160,14 @@ module "frontend_bucket" {
 }
 
 
-#module "database" {   #database module
+module "database" {   #database module
     /*
     source = "./src/modules/sql_services"
     private_network_name = module.networking.network-name
     routing_mode = "REGIONAL"
     */
 
-/*
-    
+
     source = "./src/modules/sql_services"
     
     private_ip_name = "database-private-connenction"
@@ -182,26 +181,45 @@ module "frontend_bucket" {
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = module.database.reserved-peering-ranges
 
-    database_name = "med-endabank-database3"
+    database_name = "medellin-med-med-endabank-database"
     database_instance =  module.database.database-name #module.database.database-name
 
-    database_instance_name = "med-endabank-database-primary3"
+    database_instance_name = "medellin-med-med-endabank-database-primary"
     database_region = var.region
+<<<<<<< HEAD
     database_version = "POSTGRES_13"
+=======
+    database_version = "MYSQL_5_7" #"POSTGRES_13"
+>>>>>>> ramp-up-second-part
     deletion_protection = false
     depends_on_database = [module.database.depends-on-database]#[google_service_networking_connection.private_vpc_connection]
     database_tier = "db-g1-small"
     availability_type = "REGIONAL"
     disk_size = 10 #10 GB DISK SIZE
+    database_backup = true
+    database_binary_log_enabled = true
     ipv4_enabled = false
     private_network_instance = module.networking.network-self-link
 
+<<<<<<< HEAD
     database_user_name =  #var.db_user#"root"
     database_instance_credentials = module.database.database-name #revisar
     database_password = #var.db_password#"admin" #revisar sensitive variables
+=======
+    database_user_name = var.db_user#"root"
+    database_instance_credentials = module.database.database-name #revisar
+    database_password = var.db_password#"admin" #revisar sensitive variables
+>>>>>>> ramp-up-second-part
     }
 
-*/
+
+
+
+
+
+
+
+
 
 
 
