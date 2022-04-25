@@ -186,7 +186,7 @@ module "database" {   #database module
 
     database_instance_name = "medellin-med-med-endabank-database-primary"
     database_region = var.region
-    database_version = "MYSQL_5_7"#"POSTGRES_13"
+    database_version = "MYSQL_5_7" #"POSTGRES_13"
     deletion_protection = false
     depends_on_database = [module.database.depends-on-database]#[google_service_networking_connection.private_vpc_connection]
     database_tier = "db-g1-small"
