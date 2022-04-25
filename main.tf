@@ -143,7 +143,7 @@ module "ci-cd-jumbox-host" {
 module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
-    bucket_name             = "medellin-med-endabank-frotend"
+    bucket_name             = "medellin-med-endabank-frotend4"
     project_id              = "medellin-med"
     bucket_region           = "us-central1"
     bucket_force_destroy    = true
