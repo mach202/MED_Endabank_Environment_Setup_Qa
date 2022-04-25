@@ -186,11 +186,7 @@ module "database" {   #database module
 
     database_instance_name = "medellin-med-med-endabank-database-primary"
     database_region = var.region
-<<<<<<< HEAD
-    database_version = "POSTGRES_13"
-=======
     database_version = "MYSQL_5_7" #"POSTGRES_13"
->>>>>>> ramp-up-second-part
     deletion_protection = false
     depends_on_database = [module.database.depends-on-database]#[google_service_networking_connection.private_vpc_connection]
     database_tier = "db-g1-small"
@@ -201,16 +197,11 @@ module "database" {   #database module
     ipv4_enabled = false
     private_network_instance = module.networking.network-self-link
 
-<<<<<<< HEAD
-    database_user_name =  #var.db_user#"root"
-    database_instance_credentials = module.database.database-name #revisar
-    database_password = #var.db_password#"admin" #revisar sensitive variables
-=======
     database_user_name = var.db_user#"root"
     database_instance_credentials = module.database.database-name #revisar
     database_password = var.db_password#"admin" #revisar sensitive variables
->>>>>>> ramp-up-second-part
     }
+
 
 
 
