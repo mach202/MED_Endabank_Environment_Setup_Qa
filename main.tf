@@ -227,7 +227,7 @@ module "database" {   #database module
     database_name = "medellin-med-endabank-database-postgres" 
     database_instance =  module.database.database-name #module.database.database-name
 
-    database_instance_name = "medellin-med-endabank-database-primary_postgres"
+    database_instance_name = "medellin-med-endabank-database-primary-postgres"
     database_region = var.region
     database_version = "POSTGRES_13"
     deletion_protection = false
