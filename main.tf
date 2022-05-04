@@ -159,13 +159,13 @@ module "frontend_bucket" {
     bucket_max_age_seconds = 3600
 }
 
-
+/*
 module "database" {   #database module
-    /*
-    source = "./src/modules/sql_services"
-    private_network_name = module.networking.network-name
-    routing_mode = "REGIONAL"
-    */
+    
+    #source = "./src/modules/sql_services"
+    #private_network_name = module.networking.network-name
+    #routing_mode = "REGIONAL"
+    
 
 
     source = "./src/modules/sql_services"
@@ -201,8 +201,49 @@ module "database" {   #database module
     database_instance_credentials = module.database.database-name #revisar
     database_password = var.db_password#"admin" #revisar sensitive variables
 }
+*/
+
+module "database" {   #database module
+    
+    #source = "./src/modules/sql_services"
+    #private_network_name = module.networking.network-name
+    #routing_mode = "REGIONAL"
+    
 
 
+    source = "./src/modules/sql_services"
+    
+    private_ip_name = "database-private-connenction"
+    purpose = "VPC_PEERING"
+    address_type = "INTERNAL"
+    private_ip_address_version = "IPV4"
+    prefix_length = 20
+    private_network_name_ip_address = module.networking.network-self-link #network-name
+
+    network_name = module.networking.network-self-link # .network-name
+    service = "servicenetworking.googleapis.com"
+    reserved_peering_ranges = module.database.reserved-peering-ranges
+
+    database_name = "medellin-med-endabank-database_postgres"
+    database_instance =  module.database.database-name #module.database.database-name
+
+    database_instance_name = "medellin-med-endabank-database-primary_postgres"
+    database_region = var.region
+    database_version = "POSTGRES_13"
+    deletion_protection = false
+    depends_on_database = [module.database.depends-on-database]#[google_service_networking_connection.private_vpc_connection]
+    database_tier = "db-g1-small"
+    availability_type = "REGIONAL"
+    disk_size = 10 #10 GB DISK SIZE
+    database_backup = true
+    database_binary_log_enabled = true
+    ipv4_enabled = false
+    private_network_instance = module.networking.network-self-link
+
+    database_user_name = var.db_user#"root"
+    database_instance_credentials = module.database.database-name #revisar
+    database_password = var.db_password#"admin" #revisar sensitive variables
+}
 
 
 
