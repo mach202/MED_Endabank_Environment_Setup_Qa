@@ -236,7 +236,6 @@ module "database" {   #database module
     availability_type = "REGIONAL"
     disk_size = 10 #10 GB DISK SIZE
     database_backup = true
-    database_binary_log_enabled = true
     ipv4_enabled = false
     private_network_instance = module.networking.network-self-link
 

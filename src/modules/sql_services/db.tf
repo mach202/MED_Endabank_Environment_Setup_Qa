@@ -62,7 +62,6 @@ resource "google_sql_database_instance" "database_primary" {
         disk_size = var.disk_size
     backup_configuration {
         enabled = var.database_backup
-        binary_log_enabled = var.database_binary_log_enabled
     }
         ip_configuration{
             ipv4_enabled = var.ipv4_enabled 
