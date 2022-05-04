@@ -224,7 +224,7 @@ module "database" {   #database module
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = module.database.reserved-peering-ranges
 
-    database_name = "medellin-med-endabank-database-postgres"
+    database_name = "medellin-med-endabank-database-postgres" 
     database_instance =  module.database.database-name #module.database.database-name
 
     database_instance_name = "medellin-med-endabank-database-primary_postgres"
