@@ -149,11 +149,6 @@ variable "database_backup" {
   
 }
 
-variable "database_binary_log_enabled" {
-    description = "is binary log enabled"
-    type = bool
-  
-}
 variable "ipv4_enabled" {
     description = "the database need a public ip?"
     type = bool
