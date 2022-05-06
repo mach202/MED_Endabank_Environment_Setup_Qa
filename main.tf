@@ -129,7 +129,7 @@ module "ci-cd-jumbox-host" {
     instance_type = "e2-medium"
     allow_stopping_for_update = true
     
-    instance_image = "ubuntu-os-cloud/ubuntu-1804-lts"
+    instance_image = "ubuntu-os-cloud/ubuntu-2004-lts"
 
     #instance_image = "debian-10-buster-v20220118"
 
