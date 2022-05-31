@@ -2,7 +2,7 @@ module "networking" {
     source = "./src/modules/network"
 
     project_id = "medellin-med-qa"
-    network_name = "medellin-med-endabank-vpc-Qa"
+    network_name = "medellin-med-endabank-vpc-qa"
     auto_create_subnetworks = false
     delete_default_routes_on_create = false
     description = "VPC for QA Endabank bech project"
@@ -13,7 +13,7 @@ module "management-subnet" {
     source = "./src/modules/subnet"
 
     project_id = "medellin-med-qa"
-    subnet_name = "medellinmed-endabank-management-subnet-Qa"
+    subnet_name = "medellinmed-endabank-management-subnet-qa"
     subnet_cidr_range = "10.0.2.0/24"
     network_name = module.networking.network-name
     region = "us-central1"
@@ -27,7 +27,7 @@ module "kubernetes-subnet" {
     source = "./src/modules/subnet"
 
     project_id = "medellin-med-qa"
-    subnet_name = "medellin-endabank-kubernetes-subnet-Qa"
+    subnet_name = "medellin-endabank-kubernetes-subnet-qa"
     subnet_cidr_range = "10.0.3.0/24 "
     network_name = module.networking.network-name
     region = "us-central1"
@@ -40,7 +40,7 @@ module "kubernetes-subnet" {
 module "ssh-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "medellin-med-endabank-ssh-Qa"
+    fw_name = "medellin-med-endabank-ssh-qa"
     network = module.networking.network-name
     description = "allow http and https traffic"
     source_ranges = ["0.0.0.0/0"]
@@ -55,7 +55,7 @@ module "ssh-endbank-rule" {
 module "jenkins-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "medellin-med-endabank-jenkins-Qa"
+    fw_name = "medellin-med-endabank-jenkins-qa"
     network = module.networking.network-name
     description = "allow jenkins port"
     source_ranges = ["0.0.0.0/0"]
@@ -69,7 +69,7 @@ module "jenkins-endbank-rule" {
 module "kubeadm-endabank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "medellin-med-endabank-kubeadm-Qa"
+    fw_name = "medellin-med-endabank-kubeadm-qa"
     network = module.networking.network-name
     description = "allow Backend ports"
     source_ranges = ["0.0.0.0/0"]
@@ -83,12 +83,12 @@ module "kubeadm-endabank-rule" {
 module "cloud-nat" {
     source = "./src/modules/nat"
 
-    router_name = "medellin-med-endabank-router-Qa"
+    router_name = "medellin-med-endabank-router-qa"
     subnet_region = module.kubernetes-subnet.subnet-region
     network_id = module.networking.network-id
 
     
-    nat_name = "medellin-med-endabank-nat-Qa"
+    nat_name = "medellin-med-endabank-nat-qa"
     source_subnet_id = module.kubernetes-subnet.subnet-id
 
     depends_on = [module.kubernetes-subnet]
@@ -123,7 +123,7 @@ module "kubernetes-nodes" {
 module "ci-cd-jumbox-host" {
     source = "./src/modules/compute_engine_public"
 
-    instance_name = "medellin-med-endabank-ci-cd-jumbox-host-Qa"
+    instance_name = "medellin-med-endabank-ci-cd-jumbox-host-qa"
     instance_zone = "us-central1-a"
     tags = ["http-server", "https-server", "jumpbox-host"]
     instance_type = "e2-medium"
@@ -143,7 +143,7 @@ module "ci-cd-jumbox-host" {
 module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
-    bucket_name             = "medellin-med-endabank-frontend4-Qa"
+    bucket_name             = "medellin-med-endabank-frontend4-qa"
     project_id              = "medellin-med-qa"
     bucket_region           = "us-central1"
     bucket_force_destroy    = true
@@ -170,7 +170,7 @@ module "database" {   #database module
 
     source = "./src/modules/sql_services"
     
-    private_ip_name = "database-private-connenction-Qa"
+    private_ip_name = "database-private-connenction-qa"
     purpose = "VPC_PEERING"
     address_type = "INTERNAL"
     private_ip_address_version = "IPV4"
