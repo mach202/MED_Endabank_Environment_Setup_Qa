@@ -28,7 +28,7 @@ module "kubernetes-subnet" {
 
     project_id = "medellin-med-qa"
     subnet_name = "medellin-endabank-kubernetes-subnet-qa"
-    subnet_cidr_range = "10.0.1.0/24 "
+    subnet_cidr_range = "10.0.0.0/24 "
     network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
