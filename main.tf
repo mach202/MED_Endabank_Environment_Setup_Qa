@@ -13,7 +13,7 @@ module "management-subnet" {
     source = "./src/modules/subnet"
 
     project_id = "medellin-med-qa"
-    subnet_name = "medellinmed-endabank-management-subnet-qa"
+    subnet_name = "medellin-med-endabank-management-subnet-qa"
     subnet_cidr_range = "10.0.2.0/24"
     network_name = module.networking.network-name
     region = "us-central1"
@@ -27,8 +27,8 @@ module "kubernetes-subnet" {
     source = "./src/modules/subnet"
 
     project_id = "medellin-med-qa"
-    subnet_name = "medellin-endabank-kubernetes-subnet-qa"
-    subnet_cidr_range = "10.0.1.0/24"
+    subnet_name = "medellin-med-endabank-kubernetes-subnet-qa"
+    subnet_cidr_range = "10.0.3.0/24"
     network_name = module.networking.network-name
     region = "us-central1"
     private_ip_google_access = "false"
@@ -40,7 +40,7 @@ module "kubernetes-subnet" {
 module "ssh-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "medellin-med-endabank-ssh-qa"
+    fw_name = "medellin-med-endabank-ssh-rule-qa"
     network = module.networking.network-name
     description = "allow http and https traffic"
     source_ranges = ["0.0.0.0/0"]
@@ -55,7 +55,7 @@ module "ssh-endbank-rule" {
 module "jenkins-endbank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "medellin-med-endabank-jenkins-qa"
+    fw_name = "medellin-med-endabank-jenkins-rule-qa"
     network = module.networking.network-name
     description = "allow jenkins port"
     source_ranges = ["0.0.0.0/0"]
@@ -69,7 +69,7 @@ module "jenkins-endbank-rule" {
 module "kubeadm-endabank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "medellin-med-endabank-kubeadm-qa"
+    fw_name = "medellin-med-endabank-kubeadm-rule-qa"
     network = module.networking.network-name
     description = "allow Backend ports"
     source_ranges = ["0.0.0.0/0"]
