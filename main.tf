@@ -214,7 +214,7 @@ module "database" {   #database module
 
     source = "./src/modules/sql_services"
     
-    private_ip_name = "database-private-connenction-Qa"
+    private_ip_name = "database-private-connenction-qa"
     purpose = "VPC_PEERING"
     address_type = "INTERNAL"
     private_ip_address_version = "IPV4"
@@ -228,7 +228,7 @@ module "database" {   #database module
     database_name = "medellin-med-endabank-database-postgres-Qa" 
     database_instance =  module.database.database-name #module.database.database-name
 
-    database_instance_name = "medellin-med-endabank-database-primary-postgres-Qa"
+    database_instance_name = "medellin-med-endabank-database-primary-postgres-qa"
     database_region = var.region
     database_version = "POSTGRES_13"
     deletion_protection = false
