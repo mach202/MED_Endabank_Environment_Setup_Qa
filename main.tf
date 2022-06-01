@@ -228,10 +228,10 @@ module "database" {   #database module
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = module.database.reserved-peering-ranges
 
-    database_name = "medellin-med-endabank-database-postgres-qa" 
+    database_name = "medellin-med-endabank-database-postgres-qa1" 
     database_instance =  module.database.database-name #module.database.database-name
 
-    database_instance_name = "medellin-med-endabank-database-primary-postgres-qa"
+    database_instance_name = "medellin-med-endabank-database-primary-postgres-qa1"
     database_region = var.region
     database_version = "POSTGRES_13"
     deletion_protection = false
