@@ -54,7 +54,7 @@ variable "script_instances" {
   
 }
 */
-variable "instace_size" {
+variable "instance_size" {
     description = "size disk"
     type = number
     default = 10

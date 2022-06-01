@@ -7,7 +7,7 @@ resource "google_compute_instance" "default" {
     boot_disk {
       initialize_params {
           image = var.instance_image
-          size = var.instace_size
+          size = var.instance_size
       }
     }
     #tags = ["${concat(list("${var.name}-ssh", "${var.name}"), var.node_tags)}"]

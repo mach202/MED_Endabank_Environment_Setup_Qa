@@ -44,7 +44,7 @@ variable "script" {
     description = "script file"
     type = string
 }
-variable "instace_size" {
+variable "instance_size" {
     description = "size disk"
     type = number
     default = 10
