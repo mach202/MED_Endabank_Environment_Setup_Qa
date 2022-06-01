@@ -27,7 +27,7 @@ module "kubernetes-subnet" {
     source = "./src/modules/subnet"
 
     project_id = "medellin-med-qa"
-    subnet_name = "medellin-med-endabank-kubernetes-subnet-qa"
+    subnet_name = "medellin-med-endabank-backend-subnet-qa"
     subnet_cidr_range = "10.0.3.0/24"
     network_name = module.networking.network-name
     region = "us-central1"
@@ -61,7 +61,7 @@ module "jenkins-endbank-rule" {
     source_ranges = ["0.0.0.0/0"]
     protocol = "tcp"
     ports = ["8080"]
-    target_tags = ["http-server", "https-server","jumbox-host"]
+    target_tags = ["http-server", "https-server","jumpbox-host"]
     depends_on = [module.networking]
     
 }
@@ -69,13 +69,13 @@ module "jenkins-endbank-rule" {
 module "kubeadm-endabank-rule" {
     source = "./src/modules/firewall_rules"
 
-    fw_name = "medellin-med-endabank-kubeadm-rule-qa"
+    fw_name = "medellin-med-endabank-backend-rule-qa"
     network = module.networking.network-name
     description = "allow Backend ports"
     source_ranges = ["0.0.0.0/0"]
     protocol = "tcp"
-    ports = ["8080","6443","2379","2380","10250","10259","10257","30021"]
-    target_tags = ["kubeadm"]
+    ports = ["8080","25","465","587","2525","8081"]
+    target_tags = ["backend"]
     depends_on = [module.networking]
 
   
@@ -102,13 +102,14 @@ module "kubernetes-nodes" {
     count = 1
     instance_name = count.index == 0 ? "medellin-med-endabank-backend-qa" : "medellin-med-endabank-backend-qa-${count.index}"
     instance_zone = "us-central1-a"
-    tags = ["http-server", "https-server", "kubeadm"]
+    tags = ["http-server", "https-server", "backend"]
     can_ip_forward = true
     instance_type = "e2-medium"
     allow_stopping_for_update = true
+    
 
-    instance_image = "ubuntu-os-cloud/ubuntu-1804-lts"
-
+    instance_image = "ubuntu-os-cloud/ubuntu-2004-lts"
+    size = 15
     #instance_image ="debian-10-buster-v20220118"
 
     subnetwork = module.kubernetes-subnet.subnet-id
@@ -129,7 +130,9 @@ module "ci-cd-jumbox-host" {
     instance_type = "e2-medium"
     allow_stopping_for_update = true
     
+    
     instance_image = "ubuntu-os-cloud/ubuntu-2004-lts" 
+    size = 40
 
     #instance_image = "debian-10-buster-v20220118"
 
@@ -143,7 +146,7 @@ module "ci-cd-jumbox-host" {
 module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
-    bucket_name             = "medellin-med-endabank-frontend4-qa"
+    bucket_name             = "medellin-med-endabank-frontend-qa"
     project_id              = "medellin-med-qa"
     bucket_region           = "us-central1"
     bucket_force_destroy    = true
@@ -225,7 +228,7 @@ module "database" {   #database module
     service = "servicenetworking.googleapis.com"
     reserved_peering_ranges = module.database.reserved-peering-ranges
 
-    database_name = "medellin-med-endabank-database-postgres-Qa" 
+    database_name = "medellin-med-endabank-database-postgres-qa" 
     database_instance =  module.database.database-name #module.database.database-name
 
     database_instance_name = "medellin-med-endabank-database-primary-postgres-qa"

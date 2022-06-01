@@ -8,6 +8,7 @@ resource "google_compute_instance" "default" {
     boot_disk {
       initialize_params {
           image = var.instance_image
+          size = var.instace_size
       }
     }
    
