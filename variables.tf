@@ -1,5 +1,7 @@
+/*
 variable "GCP_SERVICES" {
 }
+*/
 /*
 variable "backend_hostname" {
     default = "app.terraform.io"
@@ -17,7 +19,7 @@ variable "backend_name_workspace" {
 }
 */
 variable "project" {
-    default = "medellin-med"
+    default = "medellin-med_qa"
   
 }
 
