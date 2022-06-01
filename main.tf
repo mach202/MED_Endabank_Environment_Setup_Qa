@@ -147,7 +147,7 @@ module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
     bucket_name             = "medellin-med-endabank-frontend-qa"
-    project_id              = "medellin-med"
+    project_id              = "Medellin-MED"
     bucket_region           = "us-central1"
     bucket_force_destroy    = true
 

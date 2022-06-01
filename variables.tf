@@ -19,7 +19,7 @@ variable "backend_name_workspace" {
 }
 */
 variable "project" {
-    default = "medellin-med"
+    default = "Medellin-MED"
   
 }
 
