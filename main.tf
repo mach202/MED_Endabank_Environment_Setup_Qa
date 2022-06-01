@@ -100,7 +100,7 @@ module "kubernetes-nodes" {
     source = "./src/modules/compute_engine_private"
 
     count = 1
-    instance_name = count.index == 0 ? "medellin-med-endabank-Backend-Qa" : "medellin-med-endabank-Backend-Qa-${count.index}"
+    instance_name = count.index == 0 ? "medellin-med-endabank-Backend-qa" : "medellin-med-endabank-Backend-qa-${count.index}"
     instance_zone = "us-central1-a"
     tags = ["http-server", "https-server", "kubeadm"]
     can_ip_forward = true
