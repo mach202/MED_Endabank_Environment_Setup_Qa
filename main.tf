@@ -1,7 +1,7 @@
 module "networking" {
     source = "./src/modules/network"
 
-    project_id = "medellin-med-qa"
+    project_id = "medellin-med"
     network_name = "medellin-med-endabank-vpc-qa"
     auto_create_subnetworks = false
     delete_default_routes_on_create = false
@@ -12,7 +12,7 @@ module "networking" {
 module "management-subnet" {
     source = "./src/modules/subnet"
 
-    project_id = "medellin-med-qa"
+    project_id = "medellin-med"
     subnet_name = "medellin-med-endabank-management-subnet-qa"
     subnet_cidr_range = "10.0.2.0/24"
     network_name = module.networking.network-name
@@ -26,7 +26,7 @@ module "management-subnet" {
 module "kubernetes-subnet" {
     source = "./src/modules/subnet"
 
-    project_id = "medellin-med-qa"
+    project_id = "medellin-med"
     subnet_name = "medellin-med-endabank-backend-subnet-qa"
     subnet_cidr_range = "10.0.3.0/24"
     network_name = module.networking.network-name
@@ -147,7 +147,7 @@ module "frontend_bucket" {
     source = "./src/modules/cloud_storage"
     
     bucket_name             = "medellin-med-endabank-frontend-qa"
-    project_id              = "medellin-med-qa"
+    project_id              = "medellin-med"
     bucket_region           = "us-central1"
     bucket_force_destroy    = true
 
