@@ -1,7 +1,7 @@
-/*
+
 variable "GCP_SERVICES" {
 }
-*/
+
 /*
 variable "backend_hostname" {
     default = "app.terraform.io"
