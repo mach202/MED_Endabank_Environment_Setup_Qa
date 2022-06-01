@@ -109,7 +109,7 @@ module "kubernetes-nodes" {
     
 
     instance_image = "ubuntu-os-cloud/ubuntu-2004-lts"
-    size = 15
+    instance_size = 15
     #instance_image ="debian-10-buster-v20220118"
 
     subnetwork = module.kubernetes-subnet.subnet-id
@@ -132,7 +132,7 @@ module "ci-cd-jumbox-host" {
     
     
     instance_image = "ubuntu-os-cloud/ubuntu-2004-lts" 
-    size = 40
+    instance_size = 40
 
     #instance_image = "debian-10-buster-v20220118"
 
